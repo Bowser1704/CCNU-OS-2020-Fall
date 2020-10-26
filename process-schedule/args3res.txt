@@ -1,0 +1,128 @@
+Here is the process list, with the infomation of each process: 
+
+Process: 1, enter_time:  0, need_time: 60, priority: 3
+Process: 2, enter_time: 20, need_time: 60, priority: 2
+Process: 3, enter_time: 30, need_time: 15, priority: 1
+
+Solution:
+
+FIFO:
+Execution trace:
+  time   0: Run process 1 for 60 secs ( DONE at  60 ) Priority: 3
+  time  60: Run process 2 for 60 secs ( DONE at 120 ) Priority: 2
+  time 120: Run process 3 for 15 secs ( DONE at 135 ) Priority: 1
+Final statistics:
+  Process 1 -- Response:  0   Turnaround:  60  Wait:   0
+  Process 2 -- Response: 40   Turnaround: 100  Wait:  40
+  Process 3 -- Response: 90   Turnaround: 105  Wait:  90
+
+  Average -- Response:43.333   Turnaround: 88.333  Wait: 43.333
+
+Round Robin:
+Execution trace:
+  time   0: Run process 1 for  5 secs Priority: 3
+  time   5: Run process 1 for  5 secs Priority: 3
+  time  10: Run process 1 for  5 secs Priority: 3
+  time  15: Run process 1 for  5 secs Priority: 3
+  time  20: Run process 1 for  5 secs Priority: 3
+  time  25: Run process 2 for  5 secs Priority: 2
+  time  30: Run process 1 for  5 secs Priority: 3
+  time  35: Run process 2 for  5 secs Priority: 2
+  time  40: Run process 3 for  5 secs Priority: 1
+  time  45: Run process 1 for  5 secs Priority: 3
+  time  50: Run process 2 for  5 secs Priority: 2
+  time  55: Run process 3 for  5 secs Priority: 1
+  time  60: Run process 1 for  5 secs Priority: 3
+  time  65: Run process 2 for  5 secs Priority: 2
+  time  70: Run process 3 for  5 secs Priority: 1 (!!! Process 3 DONE at  75)
+  time  75: Run process 1 for  5 secs Priority: 3
+  time  80: Run process 2 for  5 secs Priority: 2
+  time  85: Run process 1 for  5 secs Priority: 3
+  time  90: Run process 2 for  5 secs Priority: 2
+  time  95: Run process 1 for  5 secs Priority: 3
+  time 100: Run process 2 for  5 secs Priority: 2
+  time 105: Run process 1 for  5 secs Priority: 3 (!!! Process 1 DONE at 110)
+  time 110: Run process 2 for  5 secs Priority: 2
+  time 115: Run process 2 for  5 secs Priority: 2
+  time 120: Run process 2 for  5 secs Priority: 2
+  time 125: Run process 2 for  5 secs Priority: 2
+  time 130: Run process 2 for  5 secs Priority: 2 (!!! Process 2 DONE at 135)
+Final statistics:
+  Process 1 -- Response:  0   Turnaround: 110  Wait:  50
+  Process 2 -- Response:  5   Turnaround: 115  Wait:  55
+  Process 3 -- Response: 10   Turnaround:  45  Wait:  30
+
+  Average -- Response:5.000   Turnaround: 90.000  Wait: 45.000
+
+Highest Priority First:
+Execution trace:
+  time   0: Run process 1 for  5 secs Priority: 3
+  time   5: Run process 1 for  5 secs Priority: 3
+  time  10: Run process 1 for  5 secs Priority: 3
+  time  15: Run process 1 for  5 secs Priority: 3
+  time  20: Run process 2 for  5 secs Priority: 2
+  time  25: Run process 2 for  5 secs Priority: 2
+  time  30: Run process 3 for  5 secs Priority: 1
+  time  35: Run process 3 for  5 secs Priority: 1
+  time  40: Run process 3 for  5 secs Priority: 1 (!!! Process 3 DONE at  45)
+  time  45: Run process 2 for  5 secs Priority: 2
+  time  50: Run process 2 for  5 secs Priority: 2
+  time  55: Run process 2 for  5 secs Priority: 2
+  time  60: Run process 2 for  5 secs Priority: 2
+  time  65: Run process 2 for  5 secs Priority: 2
+  time  70: Run process 2 for  5 secs Priority: 2
+  time  75: Run process 2 for  5 secs Priority: 2
+  time  80: Run process 2 for  5 secs Priority: 2
+  time  85: Run process 2 for  5 secs Priority: 2
+  time  90: Run process 2 for  5 secs Priority: 2 (!!! Process 2 DONE at  95)
+  time  95: Run process 1 for  5 secs Priority: 3
+  time 100: Run process 1 for  5 secs Priority: 3
+  time 105: Run process 1 for  5 secs Priority: 3
+  time 110: Run process 1 for  5 secs Priority: 3
+  time 115: Run process 1 for  5 secs Priority: 3
+  time 120: Run process 1 for  5 secs Priority: 3
+  time 125: Run process 1 for  5 secs Priority: 3
+  time 130: Run process 1 for  5 secs Priority: 3 (!!! Process 1 DONE at 135)
+Final statistics:
+  Process 1 -- Response:  0   Turnaround: 135  Wait:  75
+  Process 2 -- Response:  0   Turnaround:  75  Wait:  15
+  Process 3 -- Response:  0   Turnaround:  15  Wait:   0
+
+  Average -- Response:0.000   Turnaround: 75.000  Wait: 30.000
+
+Shortest Time-to-Complete First:
+Execution trace:
+  time   0: Run process 1 for  5 secs Priority: 3
+  time   5: Run process 1 for  5 secs Priority: 3
+  time  10: Run process 1 for  5 secs Priority: 3
+  time  15: Run process 1 for  5 secs Priority: 3
+  time  20: Run process 1 for  5 secs Priority: 3
+  time  25: Run process 1 for  5 secs Priority: 3
+  time  30: Run process 3 for  5 secs Priority: 1
+  time  35: Run process 3 for  5 secs Priority: 1
+  time  40: Run process 3 for  5 secs Priority: 1 (!!! Process 3 DONE at  45)
+  time  45: Run process 1 for  5 secs Priority: 3
+  time  50: Run process 1 for  5 secs Priority: 3
+  time  55: Run process 1 for  5 secs Priority: 3
+  time  60: Run process 1 for  5 secs Priority: 3
+  time  65: Run process 1 for  5 secs Priority: 3
+  time  70: Run process 1 for  5 secs Priority: 3 (!!! Process 1 DONE at  75)
+  time  75: Run process 2 for  5 secs Priority: 2
+  time  80: Run process 2 for  5 secs Priority: 2
+  time  85: Run process 2 for  5 secs Priority: 2
+  time  90: Run process 2 for  5 secs Priority: 2
+  time  95: Run process 2 for  5 secs Priority: 2
+  time 100: Run process 2 for  5 secs Priority: 2
+  time 105: Run process 2 for  5 secs Priority: 2
+  time 110: Run process 2 for  5 secs Priority: 2
+  time 115: Run process 2 for  5 secs Priority: 2
+  time 120: Run process 2 for  5 secs Priority: 2
+  time 125: Run process 2 for  5 secs Priority: 2
+  time 130: Run process 2 for  5 secs Priority: 2 (!!! Process 2 DONE at 135)
+Final statistics:
+  Process 1 -- Response:  0   Turnaround:  75  Wait:  15
+  Process 2 -- Response: 55   Turnaround: 115  Wait:  55
+  Process 3 -- Response:  0   Turnaround:  15  Wait:   0
+
+  Average -- Response:18.333   Turnaround: 68.333  Wait: 23.333
+
