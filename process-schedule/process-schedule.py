@@ -5,7 +5,7 @@ Timeslice = 5
 
 class Process:
     num = 0
-    # status = 1  # 1 ready, 2 waiting, 3 running.
+    # status = 1  # 1 ready, 2 waiting, 3 running. it's no need to use this state
     priority = 0
     need_time = 0
     enter_time = 0
@@ -35,7 +35,7 @@ def print_statistics(processes):
         # print(p.enter_time, p.need_time, p.start_time, p.complete_time)
         num  = p.num
         runtime = p.need_time
-        
+
         response   = p.start_time - p.enter_time
         turnaround = p.complete_time - p.enter_time
         wait       = turnaround - p.need_time
@@ -80,9 +80,10 @@ def tsr(processes, key=None):
     print('Execution trace:')
     tsr_processes = copy.deepcopy(processes)
     cur, size = 0, len(tsr_processes)
-    start, done = set(), []
+    start, done = set(), [] #start record process that has entered the queue, prevent repeated entry.
     circular_queue = deque()
     while len(done) < size:
+        # if using depue.extend, we can't make the start set clearly.
         pes = list(filter(lambda x: x.num not in start and x.enter_time <= cur, tsr_processes))
         for p in pes:
             circular_queue.append(p)
@@ -90,6 +91,7 @@ def tsr(processes, key=None):
         if key == None:
             p = circular_queue[0]
         else:
+            # Because the smaller the number, the higher the priority, we can use the min function all the time.
             p = min(circular_queue, key=key)
         if p.num not in start:
             start.append(p.num)
@@ -109,7 +111,7 @@ def tsr(processes, key=None):
     print_statistics(tsr_processes)
 
 
-processes = []    
+processes = []
 num = int(input())
 for i in range(num):
     process_s = input().split()
