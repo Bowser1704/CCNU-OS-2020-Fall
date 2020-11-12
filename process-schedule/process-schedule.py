@@ -1,7 +1,7 @@
 import copy
 from collections import deque
 
-Timeslice = 5
+Timeslice = 1
 
 class Process:
     num = 0
