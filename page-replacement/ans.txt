@@ -1,0 +1,34 @@
+Request sequence:
+[1, 2, 3, 4, 2, 1, 5, 6, 2, 1, 2, 3, 7, 6, 3, 2, 1, 2, 3, 6]
+
+First In First Out
+Miss page 1 swap in empty physical memory
+Miss page 2 swap in empty physical memory
+Miss page 3 swap in empty physical memory
+Miss page 4 swap in empty physical memory
+Miss page 5 swap out page 1
+Miss page 6 swap out page 2
+Miss page 2 swap out page 3
+Miss page 1 swap out page 4
+Miss page 3 swap out page 5
+Miss page 7 swap out page 6
+Miss page 6 swap out page 2
+Miss page 2 swap out page 1
+Miss page 1 swap out page 3
+Miss page 3 swap out page 7
+pagefault times: 14
+pagefault probabilities: 0.7
+
+Least Recently Used
+Miss page 1 swap in empty physical memory
+Miss page 2 swap in empty physical memory
+Miss page 3 swap in empty physical memory
+Miss page 4 swap in empty physical memory
+Miss page 5 swap out page 1
+Miss page 6 swap out page 5
+Miss page 3 swap out page 2
+Miss page 7 swap out page 3
+Miss page 6 swap out page 7
+Miss page 1 swap out page 2
+pagefault times: 10
+pagefault probabilities: 0.5
