@@ -28,7 +28,7 @@ def free(areas, size):
                 area[1] += releaseable_size
                 size -= releaseable_size
                 start = area[0] + area[1]
-        
+
 
 def adaption(areas, requests, key=None, reverse=False):
     for request in requests:
@@ -38,6 +38,7 @@ def adaption(areas, requests, key=None, reverse=False):
                 area[0] += request
                 area[1] -= request
                 isAllocated = True
+                print("Allocating {:3d} bytes, success!".format(request))
                 if key:
                     areas.sort(key=key, reverse=reverse)
                 break
@@ -47,7 +48,7 @@ def adaption(areas, requests, key=None, reverse=False):
     print_res(areas)
 
 def print_res(areas):
-    # print("Free space")
+    print("Free space:")
     for area in areas:
         print("start: {} end: {} size: {}".format(area[0], area[0]+area[1], area[1]))
 
@@ -55,7 +56,7 @@ def ff(free_areas, requests):
     print("\nFirst Fit")
     areas = copy.deepcopy(free_areas)
     adaption(areas, requests)
-    
+
 
 def bf(free_areas, requests):
     print("\nBest Fit")

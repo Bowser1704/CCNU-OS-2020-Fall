@@ -1,0 +1,27 @@
+
+First Fit
+Allocating 150 bytes, success!
+Allocating  50 bytes, success!
+Allocating  90 bytes, success!
+Allocating  80 bytes, success!
+Free space:
+start: 290 end: 300 size: 10
+start: 480 end: 512 size: 32
+
+Best Fit
+Allocating 150 bytes, success!
+Allocating  50 bytes, success!
+Allocating  90 bytes, success!
+There is not enough free space to allocate 80 bytes!
+Free space:
+start: 240 end: 300 size: 60
+start: 450 end: 512 size: 62
+
+Worst Fit
+Allocating 150 bytes, success!
+Allocating  50 bytes, success!
+Allocating  90 bytes, success!
+Allocating  80 bytes, success!
+Free space:
+start: 490 end: 512 size: 22
+start: 280 end: 300 size: 20
