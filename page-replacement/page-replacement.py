@@ -1,7 +1,6 @@
 from collections import deque
-from copy import deepcopy
 
-PHYSICAL_PAGE_NUM = 4
+PHYSICAL_PAGE_NUM = 3
 
 requests = input().split()
 requests = [int(x) for x in requests]
@@ -13,10 +12,10 @@ def fifo(requests):
     for request in requests:
         if request not in pp:
             if len(pp) == PHYSICAL_PAGE_NUM:
-                print("Miss page {} swap out page {}".format(request, pp[0]))
+                print("Miss page {} swap out page {}".format(request, pp[-1]))
             else:
                 print("Miss page {} swap in empty physical memory".format(request))
-            pp.append(request)
+            pp.appendleft(request)
             pagefault_times += 1
     print_analysis(pagefault_times)
 
@@ -27,7 +26,7 @@ def lru(requests):
     for request in requests:
         if request not in pp:
             if len(pp) == PHYSICAL_PAGE_NUM:
-                print("Miss page {} swap out page {}".format(request, pp[0]))
+                print("Miss page {} swap out page {}".format(request, pp[-1]))
             else:
                 print("Miss page {} swap in empty physical memory".format(request))
             pp.appendleft(request)
